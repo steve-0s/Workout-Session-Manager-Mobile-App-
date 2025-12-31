@@ -1,12 +1,11 @@
-import { Slot } from 'expo-router';
-import { useEffect } from 'react';
-import { runMigrations } from '../database/migrations';
+import { Slot } from "expo-router";
+import { View } from "react-native";
+import React from "react";
 
-export default function RootLayout() {
-
-  useEffect(() => {
-    runMigrations();
-  }, []);
-
-  return <Slot />;
+export default function Layout() {
+  return (
+    <View style={{ flex: 1 }}>
+      <Slot />
+    </View>
+  );
 }

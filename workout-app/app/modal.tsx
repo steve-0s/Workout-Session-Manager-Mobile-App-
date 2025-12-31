@@ -1,29 +1,63 @@
-import { Link } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
+import React, { useState } from "react";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function ModalScreen() {
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const router = useRouter();
+
+  const addWorkout = () => {
+    // For now, we just log it. Later you can connect to state/store/backend
+    console.log("New Workout:", { name, type });
+
+    // Close modal and go back
+    router.back();
+  };
+
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
-      </Link>
-    </ThemedView>
+    <View style={{ flex: 1, padding: 20, backgroundColor: "#fff" }}>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>
+        Add Workout
+      </Text>
+
+      <TextInput
+        placeholder="Workout Name"
+        value={name}
+        onChangeText={setName}
+        style={{
+          borderWidth: 1,
+          borderColor: "#ccc",
+          padding: 10,
+          marginBottom: 15,
+          borderRadius: 5,
+        }}
+      />
+
+      <TextInput
+        placeholder="Workout Type (Strength, Cardio, etc.)"
+        value={type}
+        onChangeText={setType}
+        style={{
+          borderWidth: 1,
+          borderColor: "#ccc",
+          padding: 10,
+          marginBottom: 20,
+          borderRadius: 5,
+        }}
+      />
+
+      <TouchableOpacity
+        onPress={addWorkout}
+        style={{
+          padding: 15,
+          backgroundColor: "#6200ee",
+          borderRadius: 5,
+          alignItems: "center",
+        }}
+      >
+        <Text style={{ color: "#fff", fontWeight: "bold" }}>Add Workout</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-});

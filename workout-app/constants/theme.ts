@@ -5,25 +5,43 @@
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+const primaryAccent = '#FF6B00'; // Neon orange primary accent
+const secondaryAccent = '#00E0FF'; // Cyan secondary accent
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    text: '#FFFFFF',
+    background: '#0B0F14',
+    tint: primaryAccent,
+    icon: '#8B97A7',
+    tabIconDefault: '#8B97A7',
+    tabIconSelected: primaryAccent,
+    card: '#131A22',
+    border: '#1F2937',
+    success: '#00FF85',
+    warning: '#F59E0B',
+    error: '#FF3B3B',
+    primary: primaryAccent,
+    secondary: secondaryAccent,
+    gradientStart: primaryAccent,
+    gradientEnd: '#FF8533',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    text: '#FFFFFF',
+    background: '#0B0F14',
+    tint: primaryAccent,
+    icon: '#8B97A7',
+    tabIconDefault: '#8B97A7',
+    tabIconSelected: primaryAccent,
+    card: '#131A22',
+    border: '#1F2937',
+    success: '#00FF85',
+    warning: '#F59E0B',
+    error: '#FF3B3B',
+    primary: primaryAccent,
+    secondary: secondaryAccent,
+    gradientStart: primaryAccent,
+    gradientEnd: '#FF8533',
   },
 };
 
